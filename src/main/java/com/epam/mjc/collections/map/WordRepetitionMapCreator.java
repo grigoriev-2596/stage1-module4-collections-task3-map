@@ -8,7 +8,7 @@ public class WordRepetitionMapCreator {
     public Map<String, Integer> createWordRepetitionMap(String sentence) {
         Map<String, Integer> result = new HashMap<>();
         if (sentence.isEmpty()) return result;
-        sentence = sentence.toLowerCase(Locale.ROOT);
+        sentence = sentence.toLowerCase(Locale.ENGLISH);
         for (String s : sentence.split(", |[ .,]")) {
             if (result.computeIfPresent(s, (k,v) -> v+1) != null) continue;
             result.put(s, 1);

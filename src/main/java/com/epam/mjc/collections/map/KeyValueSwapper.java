@@ -9,11 +9,11 @@ public class KeyValueSwapper {
         for(Map.Entry<Integer, String> e : sourceMap.entrySet()) {
             String value = e.getValue();
             Integer key = e.getKey();
-            if (swapped.containsKey(value) && key < swapped.get(value)) {
+            if (!swapped.containsKey(value)) {
                 swapped.put(value, key);
-                continue;
+            } else  if (key < swapped.get(value)) {
+                swapped.put(value, key);
             }
-            swapped.put(value, key);
         }
         return swapped;
     }
